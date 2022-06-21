@@ -1613,41 +1613,6 @@ namespace Private {
       }
     });
 
-    const matching = document.createElement('optgroup');
-    matching.label = trans.__('Use Kernel from Preferred Session');
-    node.appendChild(matching);
-
-    if (matchingSessions.length) {
-      matchingSessions.sort((a, b) => {
-        return a.path.localeCompare(b.path);
-      });
-
-      each(matchingSessions, session => {
-        const name = session.kernel ? displayNames[session.kernel.name] : '';
-        matching.appendChild(optionForSession(session, name, translator));
-      });
-    }
-
-    const otherSessionsNode = document.createElement('optgroup');
-    otherSessionsNode.label = trans.__('Use Kernel from Other Session');
-    node.appendChild(otherSessionsNode);
-
-    if (otherSessions.length) {
-      otherSessions.sort((a, b) => {
-        return a.path.localeCompare(b.path);
-      });
-
-      each(otherSessions, session => {
-        const name = session.kernel
-          ? displayNames[session.kernel.name] || session.kernel.name
-          : '';
-        otherSessionsNode.appendChild(
-          optionForSession(session, name, translator)
-        );
-      });
-    }
-  }
-
   /**
    * Get the kernel search options given a session context and session manager.
    */
