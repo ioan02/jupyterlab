@@ -1617,40 +1617,6 @@ namespace Private {
         otherSessions.push(session);
       }
     });
-
-    const matching = document.createElement('optgroup');
-    matching.label = trans.__('Use Kernel from Preferred Session');
-    node.appendChild(matching);
-
-    if (matchingSessions.length) {
-      matchingSessions.sort((a, b) => {
-        return a.path.localeCompare(b.path);
-      });
-
-      each(matchingSessions, session => {
-        const name = session.kernel ? displayNames[session.kernel.name] : '';
-        matching.appendChild(optionForSession(session, name, translator));
-      });
-    }
-
-    const otherSessionsNode = document.createElement('optgroup');
-    otherSessionsNode.label = trans.__('Use Kernel from Other Session');
-    node.appendChild(otherSessionsNode);
-
-    if (otherSessions.length) {
-      otherSessions.sort((a, b) => {
-        return a.path.localeCompare(b.path);
-      });
-
-      each(otherSessions, session => {
-        const name = session.kernel
-          ? displayNames[session.kernel.name] || session.kernel.name
-          : '';
-        otherSessionsNode.appendChild(
-          optionForSession(session, name, translator)
-        );
-      });
-    }
   }
 
   /**
@@ -1690,28 +1656,5 @@ namespace Private {
     option.value = 'null';
     group.appendChild(option);
     return group;
-  }
-
-  /**
-   * Create an option element for a session.
-   */
-  function optionForSession(
-    session: Session.IModel,
-    displayName: string,
-    translator?: ITranslator
-  ): HTMLOptionElement {
-    translator = translator || nullTranslator;
-    const trans = translator.load('jupyterlab');
-
-    const option = document.createElement('option');
-    const sessionName = session.name || PathExt.basename(session.path);
-    option.text = sessionName;
-    option.value = JSON.stringify({ id: session.kernel?.id });
-    option.title =
-      `${trans.__('Path:')} ${session.path}\n` +
-      `${trans.__('Name:')} ${sessionName}\n` +
-      `${trans.__('Kernel Name:')} ${displayName}\n` +
-      `${trans.__('Kernel Id:')} ${session.kernel?.id}`;
-    return option;
   }
 }
