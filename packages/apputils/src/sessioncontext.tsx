@@ -1542,7 +1542,7 @@ namespace Private {
 
     // Handle a preferred kernels in order of display name.
     const preferred = document.createElement('optgroup');
-    preferred.label = trans.__('Start Preferred Kernel');
+    preferred.label = trans.__('Start Preferred azeazeKernel');
 
     names.sort((a, b) => displayNames[a].localeCompare(displayNames[b]));
     for (const name of names) {
@@ -1644,9 +1644,9 @@ namespace Private {
     const trans = translator.load('jupyterlab');
 
     const group = document.createElement('optgroup');
-    group.label = trans.__('Use No Kernel');
+    group.label = trans.__('Use No Kernelazeazeazeaz');
     const option = document.createElement('option');
-    option.text = trans.__('No Kernel');
+    option.text = trans.__('No Kernelazeazezaeaze');
     option.value = 'null';
     group.appendChild(option);
     return group;
