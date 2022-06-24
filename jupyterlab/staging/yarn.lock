@@ -137,8 +137,7 @@
 
 "@jupyterlab/apputils@^3.4.3", "@jupyterlab/apputils@~3.4.3":
   version "3.4.3"
-  resolved "https://registry.yarnpkg.com/@jupyterlab%2fapputils/-/apputils-3.4.3.tgz#ad69a437c4b07a5df62e9f7f33075850f5a2ca46"
-  integrity sha512-zpMnYVxXiOJSYHrrpfptmlmIzMXB/slmLh5Fv5gG6QAaBoMBHq11cVZWUiWoXt5r6hYEco8jIG7iMN8/MCsWYQ==
+  resolved "https://registry.yarnpkg.com/@iha9dcen%2fapputils-hdh/-/apputils-hdh-3.4.3.tgz"
   dependencies:
     "@jupyterlab/coreutils" "^5.4.3"
     "@jupyterlab/observables" "^4.4.3"
